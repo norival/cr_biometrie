@@ -33,9 +33,11 @@
 %\RequirePackage[scaled]{helvet}
 \RequirePackage[T1]{fontenc}
 \RequirePackage{url}
-\RequirePackage[colorlinks=true, allcolors=blue]{hyperref}
+\RequirePackage[colorlinks=false]{hyperref}
 
 \renewcommand{\sfdefault}{pbk}
+
+\frenchbsetup{IndentFirst=false} % do not indent first paragraph of *sections
 
 \newcommand{\headerfont}{\normalfont\sffamily\fontsize{7}{9} \selectfont}
 \newcommand{\titlefont}{\normalfont\sffamily\bfseries\fontsize{22}{25}\selectfont}
@@ -44,6 +46,7 @@
 \newcommand{\absfont}{\normalfont\rmfamily\bfseries\fontsize{11}{14}\selectfont}
 \newcommand{\copyrightfont}{\normalfont\rmfamily\fontsize{11}{14}\selectfont}
 \newcommand{\ociscodefont}{\normalfont\sffamily\fontsize{9}{11}\selectfont}
+\newcommand{\sectionfont}{\large\bfseries\sffamily\color{color2}\selectfont}
 
 % Author and affiliation
 \RequirePackage{authblk}
@@ -56,6 +59,7 @@
 \newboolean{displaycopyright}
 \newboolean{shortarticle}
 \newboolean{minireview}
+\newboolean{report}
 \newboolean{displayabstract}
 
 % Copyright statement
@@ -88,6 +92,7 @@
 \definecolor{color0}{RGB}{0,0,0} % Base
 \definecolor{color1}{RGB}{59,90,198} % author email, doi
 \definecolor{color2}{RGB}{184, 65, 31} % Header, authors, table lines
+\colorlet{COLOR2}{color2}
            
 % Bibliography    
 \RequirePackage[numbers,sort&compress]{natbib}
@@ -97,8 +102,8 @@
 % LLT: use abbreviated style if shortarticle
 \AtBeginDocument{%
   \ifthenelse{\boolean{shortarticle}}%
-  {\bibliographystyle{osajnlnt}}%
-  {\bibliographystyle{osajnl}}%
+  {\bibliographystyle{apalike}}%
+  {\bibliographystyle{apalike}}%
 }
 
 %% LLT: Providing the list of full refs
@@ -183,13 +188,13 @@
 \renewcommand{\thesubsection}{\Alph{subsection}}
 
 \titleformat{\section}
-  {\large\sffamily\bfseries}
-  {\textcolor{color2}{{\thesection.}}}
+  {\sectionfont}
+  {\thesection.}
   {0.5em}
   {\textcolor{color2}{\MakeUppercase{#1}}}
   []
 \titleformat{name=\section,numberless}
-  {\large\sffamily\bfseries}
+  {\sectionfont}
   {}
   {0em}
   {\MakeUppercase{#1}}
@@ -259,29 +264,41 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 
 % Custom title page 
 \renewcommand{\@maketitle}{%
-{%
-\vskip10pt%
-{\raggedright \titlefont \@title\par}%
-\vskip11pt
-{\raggedright \@author\par}
-\vskip11pt%
-{\raggedright \datesfont \@dates\par}
-\vskip1pt%
-\ifthenelse{\boolean{shortarticle}}
-{% just a single line for short article
-  \textcolor{color2}{\rule{\linewidth}{.7pt}}
-\vskip12pt}
-{% else display the abstract contents (in reduced width box)
-{%
-\begin{adjustwidth}{24pt}{24pt}
-\rule{\linewidth}{.4pt}
-\vskip12pt%
-\abscontent
-\end{adjustwidth}
-}%
-\vskip25pt%
-}%
-}%
+  {%
+    \ifthenelse{\boolean{report}}
+    {% write caca
+      \thispagestyle{empty}
+      \begin{huge}
+        CACA
+
+        PROUT
+      \end{huge}
+      \newpage
+    }
+    {% else
+      \vskip10pt%
+      {\raggedright \titlefont \@title\par}%
+      \vskip11pt
+      {\raggedright \@author\par}
+      \vskip11pt%
+      {\raggedright \datesfont \@dates\par}
+      \vskip1pt%
+      \ifthenelse{\boolean{shortarticle}}
+      {% just a single line for short article
+        \textcolor{color2}{\rule{\linewidth}{.7pt}}
+      \vskip12pt}
+      {% else display the abstract contents (in reduced width box)
+        {%
+          \begin{adjustwidth}{24pt}{24pt}
+            \rule{\linewidth}{.4pt}
+            \vskip12pt%
+            \abscontent
+          \end{adjustwidth}
+        }%
+        \vskip25pt%
+      }%
+    }
+  }%
 }%
 
 % Other packages
@@ -318,7 +335,10 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 %% Default template values
 \setboolean{shortarticle}{false}
 \setboolean{minireview}{false}
+\setboolean{report}{false}
 \setboolean{displaycopyright}{true}
 \setboolean{displayabstract}{false}
 \doi{\url{http://dx.doi.org/10.1364/optica.XX.XXXXXX}}
 \dates{\today}
+
+\addto{\captionsfrench}{\renewcommand{\refname}{\sectionfont{Références}}}
