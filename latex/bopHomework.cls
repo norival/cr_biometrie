@@ -81,10 +81,10 @@
                 headsep=10pt,%
                 letterpaper,twoside]{geometry}%
 \RequirePackage[labelfont={bf,sf},%
-                labelsep=period,%
                 figurename=Fig.,%
-                singlelinecheck=off,%
-                justification=RaggedRight]{caption}
+                font={footnotesize},%
+                textfont={color=gray},%
+                singlelinecheck=off]{caption}
 \setlength{\columnsep}{24pt} % Distance between the two columns of text
 \setlength{\parindent}{12pt} % Paragraph indent
 
