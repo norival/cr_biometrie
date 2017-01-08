@@ -20,8 +20,9 @@ Compilation du document
 
 ### Avec `GNU make` (recommandé)
 
-1. `make`
-2. (facultatif) `make optimize`
+1. `make` pour commplier les fichiers nécessaires
+2. `make optimize` pour optimiser la taille du pdf (facultatif) 
+3. `make clean` pour nettoyer les fichiers temporaires (facultatif)
 3. `make view` (le viewer par défaut est `zathura`)
 
 
