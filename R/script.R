@@ -32,7 +32,7 @@ p <-
   geom_bar(stat = "identity", color = bop, fill = bop) +
   theme_bw() +
   xlab("Année") +
-  ylab("Publications") +
+  ylab("Nombre de publications") +
   theme(panel.grid = element_blank(),
         axis.text.x = element_text(size = 9),
         axis.title = element_text(size = 10),
