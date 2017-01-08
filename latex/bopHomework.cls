@@ -36,6 +36,7 @@
 \RequirePackage[colorlinks=false]{hyperref}
 \RequirePackage{tabularx}
 \RequirePackage{textcomp}
+\RequirePackage{tikz}
 \RequirePackage{ccicons}
 
 \renewcommand{\sfdefault}{pbk}
@@ -187,9 +188,9 @@
   \end{tabular*}}
 \fancyhead[LO,RE]{}
 % Footers
-\lfoot{\small\ccbysa \hspace{2mm} Terminus Printing Press}%
+\lfoot{\small\ccbysa \hspace{1mm} {\fontfamily{cmss}\selectfont \textbf{CC BY-SA}}}%
 \cfoot{}%
-\rfoot{}%
+\rfoot{{\small\fontfamily{cmss}\selectfont Terminus Printing Press}}%
 \renewcommand{\headrulewidth}{0pt}% % No header rule
 \renewcommand{\footrulewidth}{0pt}% % No footer rule
 
