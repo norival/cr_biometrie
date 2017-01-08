@@ -251,16 +251,16 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 }%
 }%
 \vskip8pt%
-\noindent
-\parbox{\dimexpr\linewidth}{%
-{\ociscodefont \ociscodesname\hspace*{0.5em} \@ociscodes}%
-}%
+% \noindent
+% \parbox{\dimexpr\linewidth}{%
+% {\ociscodefont \ociscodesname\hspace*{0.5em} \@ociscodes}%
+% }%
 \vskip8pt%
 \noindent
 \parbox{\dimexpr\linewidth}{%
 \@doi%
 }%
-\hfil\rule{\linewidth}{.4pt}
+\hfill\textcolor{color2}{\rule{\linewidth}{.7pt}}
 }
 
 % Custom title page 
