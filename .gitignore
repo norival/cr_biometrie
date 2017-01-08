@@ -1,1 +1,29 @@
+# generic files
+*~
+.~*
+.RData
+*.aux
+*.out
+*.log
+*.synctex.gz
+*.sw*
+*.bbl
+*.blg
+*.gl*
+*.xdy
+*.nav
+*.toc
+*.snm
+*.Rhistory
+*.Rout
+*.fdb_latexmk
+*.fls
+*.glsdefs
+*.ist
+*.lof
+
+# specific files
+latex/cr.pdf
 latex/img/dyn_*
+
+# directories
