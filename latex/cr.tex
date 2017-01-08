@@ -5,6 +5,7 @@
 \setboolean{displaycopyright}{false}
 
 \usepackage{lettrine}
+\usepackage{tikz}
 
 \title{Commentaire sur <<~\textit{A simple statistical guide for the analysis
   of behaviour when data are constrained due to practical or ethical
@@ -18,39 +19,34 @@
 \maketitle
 
 
-\section{Des données et des Hommes}
+\section{Il était une fois la p-value}
 
-\lettrine{E}{n écologie}, les chercheurs sont souvent confrontés à d'importants problèmes
-concernant les données analysées.
-Ces problèmes sont souvent inhérents aux sujets analysés et ne peuvent donc pas
-être corrigés.
-Un des problèmes fréquents est la limite de la taille de l'échantillon.
-Ce problème est d'autant plus important quand il s'agit de travailler sur des
-espèces en danger.
-En effet leur effectif est souvent limité et les méthodes d'échantillonnage
-disponibles doivent respecter de nombreuses contraintes.
-Il est d'autant plus important de trouver une solution à ce problème que les
-résultats de telles études peuvent mener à l'établissement de politiques de
-conservation dont peut dépendre la survie de l'espèce concernée.
-
-Une solution à ces problèmes est l'utilisation d'outils statistques
-alternatifs, tels que l'inférence bayésienne.
 
 \section{Comparaison entre approches classique et bayésienne}
 
-\lipsum[1-2]
+Pour faire face à ces problèmes, l'approche bayésienne est une alternative
+intéressante.
+Une simple recherche sur \textit{Web Of Science} montre une nette augmentation
+des articles utilisant cette approche en écologie ou en biologie (figure
+\ref{fig:bibliométrie}).
+
+\begin{figure}[h]
+  \centering{\graphfont\input{img/dyn_bibliometry.tex}}
+  \caption{Évolution du nombre de publications traitant d'écologie ou de
+    biologie et utilisant une approche bayésienne entre 1993 et 2016 (source :
+    \textit{Web Of Science})}
+  \label{fig:bibliométrie}
+\end{figure}
+
 
 \section{Dans d'autres domaines}
 
-\lipsum[1-2]
 
-\section{Autre section}
+\section{Un point sur le partage de données}
 
-\lipsum[1-3]
+L'utilisation de l'approche bayésienne est surtout méta-analytique, elle gagne
+donc en intérêt si les données des études précédentes sont disponibles.
 
-\section{Autre section encore}
-
-\lipsum[1-2]
 
 \begin{footnotesize}
   \bibliography{biblio.bib}
