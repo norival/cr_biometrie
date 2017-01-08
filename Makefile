@@ -6,7 +6,7 @@ TEXDIR=./latex
 TEXFILE=$(TEXDIR)/cr
 TEXDEPS=$(wildcard $(TEXDIR)/*.bib $(TEXDIR)/*.cls)
 FIGDIR=$(TEXDIR)/img
-FIG_FILES=$(wildcard $(FIGDIR)/*)
+FIG_FILES=$(FIGDIR)/dyn_pearson.tex $(FIGDIR)/dyn_bibliometry.tex
 
 R=R CMD BATCH
 R_ARGS=--no-restore --no-save
@@ -19,12 +19,13 @@ all: report
 
 report: $(TEXFILE).pdf
 
-$(TEXFILE).pdf: $(TEXFILE).tex $(TEXDEPS) $(FIG_FILES)
+$(TEXFILE).pdf: $(TEXFILE).tex $(TEXDEPS) $(RFILES) $(FIG_FILES)
 	$(LATEX) $(L_ARGS) $(TEXFILE)
 
 $(FIG_FILES): $(RDIR)/script.Rout
 
 $(RDIR)/script.Rout: $(RFILES) $(DATAS)
+	mkdir -p $(TEXDIR)/img
 	$(R) $(R_ARGS) $< $@
 
 view: $(TEXFILE).pdf
