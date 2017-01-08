@@ -173,7 +173,7 @@
         {M2 BOP -- Dijon}%
         {\ifthenelse{\boolean{shortarticle}}{Commmentaire}{Commentaire sur article}}%
     } &
-    Vol. 234, No. 1 / Janvier 1020 È.F. / \textit{Encyclopedia Galactica Reviews} \hspace{21pt}\thepage \\
+    Vol. 234, No. 1 / Janvier 1021 È.F. / \textit{Encyclopedia Galactica Reviews} \hspace{21pt}\thepage \\
     \hline
   \end{tabular*}}
 \fancyhead[RO]{\headerfont
@@ -183,7 +183,7 @@
         {M2 BOP -- Dijon}%
         {\ifthenelse{\boolean{shortarticle}}{Commmentaire}{Commentaire sur article}}%
     } &
-    Vol. 234, No. 1 / Janvier 1020 È.F. / \textit{Encyclopedia Galactica Reviews} \hspace{21pt}\thepage \\
+    Vol. 234, No. 1 / Janvier 1021 È.F. / \textit{Encyclopedia Galactica Reviews} \hspace{21pt}\thepage \\
     \hline
   \end{tabular*}}
 \fancyhead[LO,RE]{}
@@ -265,10 +265,13 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 % \parbox{\dimexpr\linewidth}{%
 % {\ociscodefont \ociscodesname\hspace*{0.5em} \@ociscodes}%
 % }%
-\vskip8pt%
+% \vskip8pt%
 \noindent
 \parbox{\dimexpr\linewidth}{%
-\@doi%
+  {\scriptsize
+    Code source du document et des graphiques :\\
+    \@doi%
+  }
 }%
 \hfill\textcolor{color2}{\rule{\linewidth}{.7pt}}
 }
