@@ -19,11 +19,13 @@ my_gray <- rgb(76, 76, 76, max = 255)
 # results for web of science query, using:
 #   'TI=(bayes*) AND TS=(ecology OR biology)'
 
+# read bibliometry data and convert the year into date object
 bib <- read.table("data/analyze.txt", header = TRUE, sep = "\t")
 bib$year <-
   as.character(bib$year) %>%
   as.Date(., format = "%Y")
 
+# generate graphic
 p <-
   bib[-nrow(bib), ] %>%
   ggplot(aes(x = year, y = records)) +
@@ -41,10 +43,11 @@ p
 dev.off()
 
 
-# ------------------------------------------------------------------------------
-# uninformative versus informative priors
-# example from garamszegi2009
+# -- NHT framework versus bayesian approach ------------------------------------
+# generates illustration for example from garamszegi2009 about house sparrows
 
+# we need a function to compute confidence intervals around pearson's r
+# coefficient
 pearson_ci <- function(r, n) {
 
   # convert r to z using fisher's z transformation
@@ -84,13 +87,17 @@ r_bin <- 0.422
 r_bin_inf <- 0.102
 r_bin_sup <- 0.657
 
+# create data frame with values
 d <- data.frame(test  = c("META", "NHT", "BUN", "BIN"),
                 r     = c(r_met, r_nht, r_bun, r_bin),
                 inf   = c(r_met_inf, r_nht_inf, r_bun_inf, r_bin_inf),
                 sup   = c(r_met_sup, r_nht_sup, r_bun_sup, r_bin_sup))
+
+# rearrange levels for graphic output
 d$test <- factor(d$test,
                  levels = c("META", "NHT", "BUN", "BIN"))
 
+# generate graphic
 p <-
   ggplot(d, aes(x = r, y = test, group = test)) +
   geom_errorbarh(aes(xmin = inf, xmax = sup, group = test),
