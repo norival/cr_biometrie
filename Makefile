@@ -13,6 +13,7 @@ R_ARGS=--no-restore --no-save
 LATEX=latexmk
 L_ARGS=-cd -gg -pdf -quiet
 VIEWER=zathura 2>/dev/null
+OPTIMIZER=./optimize_pdf.sh
 
 all: report
 
@@ -28,6 +29,9 @@ $(RDIR)/script.Rout: $(RFILES) $(DATAS)
 
 view: $(TEXFILE).pdf
 	$(VIEWER) $< &
+
+optimize: $(TEXFILE).pdf
+	$(OPTIMIZER) $(TEXFILE).pdf
 
 .PHONY: clean mrproper
 
