@@ -87,7 +87,7 @@
 \RequirePackage[labelfont={bf,sf},%
                 figurename=Fig.,%
                 font={footnotesize},%
-                textfont={color=gray},%
+                textfont={color=darkgray},%
                 singlelinecheck=off]{caption}
 \setlength{\columnsep}{24pt} % Distance between the two columns of text
 \setlength{\parindent}{12pt} % Paragraph indent
