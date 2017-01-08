@@ -46,6 +46,7 @@
 \newcommand{\absfont}{\normalfont\rmfamily\bfseries\fontsize{11}{14}\selectfont}
 \newcommand{\copyrightfont}{\normalfont\rmfamily\fontsize{11}{14}\selectfont}
 \newcommand{\ociscodefont}{\normalfont\sffamily\fontsize{9}{11}\selectfont}
+\newcommand{\graphfont}{\fontfamily{cmss}\selectfont}
 \newcommand{\sectionfont}{\large\bfseries\sffamily\color{color2}\selectfont}
 
 % Author and affiliation
@@ -264,42 +265,28 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 
 % Custom title page 
 \renewcommand{\@maketitle}{%
-  {%
-    \ifthenelse{\boolean{report}}
-    {% write caca
-      \thispagestyle{empty}
-      \begin{huge}
-        CACA
-
-        PROUT
-      \end{huge}
-      \newpage
-    }
-    {% else
-      \vskip10pt%
-      {\raggedright \titlefont \@title\par}%
-      \vskip11pt
-      {\raggedright \@author\par}
-      \vskip11pt%
-      {\raggedright \datesfont \@dates\par}
-      \vskip1pt%
-      \ifthenelse{\boolean{shortarticle}}
-      {% just a single line for short article
-        \textcolor{color2}{\rule{\linewidth}{.7pt}}
-      \vskip12pt}
-      {% else display the abstract contents (in reduced width box)
-        {%
-          \begin{adjustwidth}{24pt}{24pt}
-            \rule{\linewidth}{.4pt}
-            \vskip12pt%
-            \abscontent
-          \end{adjustwidth}
-        }%
-        \vskip25pt%
-      }%
-    }
+  \vskip10pt%
+  {\raggedright \titlefont \@title\par}%
+  \vskip11pt
+  {\raggedright \@author\par}
+  \vskip11pt%
+  {\raggedright \datesfont \@dates\par}
+  \vskip1pt%
+  \ifthenelse{\boolean{shortarticle}}
+  {% just a single line for short article
+    \textcolor{color2}{\rule{\linewidth}{.7pt}}
+  \vskip12pt}
+  {% else display the abstract contents (in reduced width box)
+    {%
+      \begin{adjustwidth}{24pt}{24pt}
+        \rule{\linewidth}{.4pt}
+        \vskip12pt%
+        \abscontent
+      \end{adjustwidth}
+    }%
+    \vskip25pt%
   }%
-}%
+}
 
 % Other packages
 \RequirePackage{enumitem} % For reducing bullet list item separation
