@@ -34,6 +34,7 @@
 \RequirePackage[T1]{fontenc}
 \RequirePackage{url}
 \RequirePackage[colorlinks=false]{hyperref}
+\RequirePackage{tabularx}
 
 \renewcommand{\sfdefault}{pbk}
 
@@ -96,22 +97,22 @@
 \colorlet{COLOR2}{color2}
            
 % Bibliography    
-\RequirePackage[numbers,sort&compress]{natbib}
+\RequirePackage[sort&compress]{natbib}
 \setlength{\bibsep}{0.0pt}
 
 %%%%%%%%%%%%%%%%%%
 % LLT: use abbreviated style if shortarticle
 \AtBeginDocument{%
   \ifthenelse{\boolean{shortarticle}}%
-  {\bibliographystyle{apalike}}%
-  {\bibliographystyle{apalike}}%
+  {\bibliographystyle{apalike-fr}}%
+  {\bibliographystyle{apalike-fr}}%
 }
 
 %% LLT: Providing the list of full refs
 % Creating a new bibliography
 \RequirePackage[resetlabels]{multibib}
 \newcites{fullrefs}{Full References}  %% Or whatever the heading might be
-\bibliographystylefullrefs{osajnl}    %% The full style
+% \bibliographystylefullrefs{osajnl}    %% The full style
 
 % Patching \cite to automatically add cite
 % to fullrefs list
@@ -164,18 +165,24 @@
 % Headers
 \fancyhead[LE]{\headerfont
   \begin{tabular*}{\textwidth}{!{\color{white}\vrule}c!{\color{white}\vrule} @{\extracolsep{\fill}} c!{\color{white}\vrule}}\arrayrulecolor{color2}
-      %\hline
-      %\cellcolor{color2}\textcolor{white}{\ifthenelse{\boolean{minireview}}{Xavier \scshape{Laviron}}{\ifthenelse{\boolean{shortarticle}}{Letter}{Commentaire sur article}}} &
-      \cellcolor{color2}\textcolor{white}{\ifthenelse{\boolean{minireview}}{M2 BOP -- Dijon}{\ifthenelse{\boolean{shortarticle}}{Letter}{Commentaire sur article}}} &
-      Année 2016--2017 -- CC de Biométrie \hspace{21pt}\thepage \\
-      \hline
-    \end{tabular*}}
-\fancyhead[RO]{\headerfont \begin{tabular*}{\textwidth}{!{\color{white}\vrule}c!{\color{white}\vrule} @{\extracolsep{\fill}} c!{\color{white}\vrule}}\arrayrulecolor{color2}
-      %\hline
-      \cellcolor{color2}\textcolor{white}{\ifthenelse{\boolean{minireview}}{M2 BOP -- Dijon}{\ifthenelse{\boolean{shortarticle}}{Letter}{Commentaire sur article}}} &
-      Année 2016--2017 -- CC de Biométrie \hspace{21pt}\thepage \\
-      \hline
-    \end{tabular*}}
+    \cellcolor{color2}\textcolor{white}{
+      \ifthenelse{\boolean{minireview}}%
+        {M2 BOP -- Dijon}%
+        {\ifthenelse{\boolean{shortarticle}}{Commmentaire}{Commentaire sur article}}%
+    } &
+    Vol. 234, No. 1 / Janvier 1020 È.F. / \textit{Encyclopedia Galactica Reviews} \hspace{21pt}\thepage \\
+    \hline
+  \end{tabular*}}
+\fancyhead[RO]{\headerfont
+  \begin{tabular*}{\textwidth}{!{\color{white}\vrule}c!{\color{white}\vrule} @{\extracolsep{\fill}} c!{\color{white}\vrule}}\arrayrulecolor{color2}
+    \cellcolor{color2}\textcolor{white}{
+      \ifthenelse{\boolean{minireview}}%
+        {M2 BOP -- Dijon}%
+        {\ifthenelse{\boolean{shortarticle}}{Commmentaire}{Commentaire sur article}}%
+    } &
+    Vol. 234, No. 1 / Janvier 1020 È.F. / \textit{Encyclopedia Galactica Reviews} \hspace{21pt}\thepage \\
+    \hline
+  \end{tabular*}}
 \fancyhead[LO,RE]{}
 % Footers
 \lfoot{}%
@@ -202,9 +209,9 @@
   []  
 \titleformat{\subsection}
   {\sffamily\bfseries}
-  {\thesubsection.}
+{\textcolor{color2}{\thesubsection.}}
   {0.5em}
-  {#1}
+  {\textcolor{color2}{{#1}}}
   []
 \titleformat{\subsubsection}
   {\sffamily\small\bfseries\itshape}
@@ -329,3 +336,9 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 \dates{\today}
 
 \addto{\captionsfrench}{\renewcommand{\refname}{\sectionfont{Références}}}
+
+%%% macro for bold tab lines %%%
+\def\hlinewd#1{%
+  \noalign{\ifnum0=`}\fi\hrule \@height #1 %
+\futurelet\reserved@a\@xhline}
+

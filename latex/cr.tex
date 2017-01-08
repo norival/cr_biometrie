@@ -7,23 +7,34 @@
 \usepackage{lettrine}
 \usepackage{tikz}
 
+\newcommand{\EG}{\textit{Encyclopedia Galactica}}
 
-\title{Mon titre}
+\title{Pratique et histoire de la statistique en écologie}
 
 \author[1,*]{Xavier Laviron}
 
-\affil[1]{Presses de Terminus}
-\affil[*]{Corresponding author: email@my-email.com}
+\affil[1]{Département des publications (BOP2), Société de publication de
+  l'Encyclopedia Galactica, Presses de Terminus}
+\affil[*]{Contact : xavier.laviron@gmx.fr}
 
-\dates{9 janvier 2417}
+\dates{9 janvier 1020 È.F.}
 
 \ociscodes{}
 
 % To be edited by editor
-\doi{\url{mon.url}}
+\doi{\url{https://github.com/norival/crBiometrie}}
 
 \begin{abstract}
-  Mon abstract.
+  Les recherches consacrées à la rédaction de la 116\textsuperscript{è} édition
+  de l'\EG ont permis la découverte d'un nombre important d'archives terriennes
+  datant de l'ère préspatiale.
+  Ces dernières ont notamment permis de mettre en évidence certains
+  comportements scientifiques de l'époque.
+  Le présent commentaire se focalise sur l'article de \citet{garamszegi2016},
+  présentant certaines aberrations statistiques qui auraient fait frémir le
+  grand Hari Seldon dans sa crypte.
+  Tous les articles cités sont disponibles en version originale et traduite en
+  galactique standard sur le site de l'\EG
 \end{abstract}
 
 
@@ -31,29 +42,141 @@
 
 \maketitle
 
+\section{Introduction}
 
-\section{Il était une fois la p-value}
+Ce commentaire tente de faire un point sur l'avancement des techniques
+statistiques au début du XXI\textsuperscript{è} siècle de l'ére préspatiale et
+notamment leur utilisation par les écologues.
+Cela devrait permettre de mieux comprendre certains débats de l'époque.
+En effet, cette période marque le début d'un tournant majeur pour l'écologie,
+discipline de plus en plus solicitée en raison des nombreuses crises
+planétaires.
+Les techniques présentées ici peuvent paraître aujourd'hui obsolètes mais elles
+n'en sont pas moins à la base des avancées les plus modernes dans le domaine.
 
 
-\section{Comparaison entre approches classique et bayésienne}
+% \section{Les hypothèses nulles au service de la science}
 
-Pour faire face à ces problèmes, l'approche bayésienne est une alternative
-intéressante.
-Une simple recherche sur \textit{Web Of Science} montre une nette augmentation
-des articles utilisant cette approche en écologie ou en biologie (figure
-\ref{fig:bibliométrie}).
+% Avant de continuer, il est important de comprendre le climat de l'époque.
+% Tout remonte à la popularisation de la \textit{p-value} par Ronald Fisher dans
+% son ouvrage de référence sur les statistiques \textit{Statistical methods for
+% research workers} \citep{fisher1925}.
+% Les enseignements statistiques se sont par la suite focalisés sur le concept de
+% NHT (\textit{Null Hypothesis Testing}), consistant à tester l'absence d'un effet
+% lors d'une expérimentation.
+
+% Pour tester cette hypothèse, il convenait d'utiliser un test statistique,
+% permettant de mesurer la distance entre les données et la prédiction faite par
+% un modèle préalablement établi.
+% Cette distance était mesurée par la \textit{p-value}.
+% Elle représente la probabilité que la statistique mesurée aurait été au moins
+% aussi large que ses valeurs observées si toutes les suppositions du modèle
+% étaient correctes, y compris l'hypothèse de test.
+% Pendant longtemps, cette probabilité a été utilisée exclusivement par les
+% biologistes afin de tester la valididté de l'hypothèse nulle, et a même souvent
+% été interprétée, à tort, comme prouvant la validité de l'hypothèse alternative.
+% Cependant elle ne montre en aucun cas cette validité, mais seulement la validité
+% qu'\emph{une} hypothèse alternative quelconque soit valable
+% \citep{garamszegi2009}.
+
+\section{Les contraintes des données biologiques}
+
+L'écologie, à l'époque devait pouvoir répondre aux problèmes que posait
+l'anthropisation grandissante des milieux naturels.
+C'est ainsi qu'est née, au début du XX\textsuperscript{è} siècle, la biologie de
+la conservation, cherchant à utiliser au mieux les connaissances théoriques en
+écologie afin de protéger la biodiversité grandement menacée.
+
+Un des problèmes majeurs de cette discipline était la qualité des données
+recueillies.
+En effet, le fait d'étudier des espèces menacées d'extinction impose
+d'importantes limitations, notamment le fait d'utiliser des méthodes
+non-invasives ou de travailler sur des taille d'échantillon petites.
+
+
+\section{La révolution Bayésienne}
+\subsection{La remise en question des nuls}
+
+Pour faire face à ces limitations, l'approche bayésienne a alors gagné en
+popularité au sein de la comunauté scientifique.
+Bien que se basant sur les travaux du XVIII\textsuperscript{è} siècle du
+mathématicien Thomas Bayes, cette approche n'a connu un véritable essor qu'à
+partir de la fin du XX\textsuperscript{è} siècle grâce à l'essor de
+l'informatique.
+La figure \ref{fig:bibliometry} montre l'évolution du nombre d'articles de
+biologie utilisant cette technique entre 1993 et 2016, d'après les fragments
+récupérés d'une base de données scientifique de l'époque.
 
 \begin{figure}[h]
   \centering{\graphfont\input{img/dyn_bibliometry.tex}}
   \caption{Évolution du nombre de publications traitant d'écologie ou de
     biologie et utilisant une approche bayésienne entre 1993 et 2016 (source :
     \textit{Web Of Science})}
-  \label{fig:bibliométrie}
+  \label{fig:bibliometry}
+\end{figure}
+
+L'approche bayésienne suscita l'intérêt de la communauté scientifique car elle
+permettait de combler les lacunes propres à l'approche classique utilisée
+jusqu'alors, à savoir les tests d'hypothèse nulle (NHT, voir le livre de
+\citet{fisher1925} pour plus d'explications à ce sujet).
+Ces derniers se basaient sur les \textit{p-value} afin de déterminer si les
+données permettaient de réfuter ou non l'hypothèse d'absence d'un effet.
+Un des problèmmes majeurs de ces tests étaient leur caractère binaire souvent
+mal interprété par les biologistes.
+En effet, ils avaient tendance à se fixer un seuil de risque de 5~\% au-dessous
+duquel il convenait de réfuter l'hypothèse nulle.
+Pire encore, une majorité de scientifiques avaient la fâcheuse habitude de
+confirmer ainsi l'hypothèse alternative.
+Il est pourtant évident que le rejet d'une hypothèse n'entraîne pas
+l'acceptation d'une seule autre hypothèse mais plutôt l'existence d'un nombre
+indéterminé d'autres hypothèses plus plausibles \citep{garamszegi2009}.
+
+\subsection{Faire face aux petits échantillons}
+
+Afin de construire un modèle sur une approche bayésienne, il convient tout
+d'abord d'établir une distribution \textit{a priori} des données.
+Cela est fait en regroupant toutes les données connues jusqu'alors.
+Une fonction de probabilité est ensuite utilisée pour prédire la distribution
+des données si le modèle, l'hypothèse et le paramètre mesuré sont vrais.
+Enfin, cette probabilité \textit{a posteriori} est modifiée, en fonction de la
+fonction de probabilité et des données nouvellement recueillies.
+Cela permet donc d'avoir une probabilité que les hypothèses soient vraies
+compte-tenu des données observées suivant le théorème énoncé par Thomas Bayes.
+L'approche NHT permet quant à elle d'obtenir une probabilité des données
+observées si les hypothèses sont vraies.
+C'est donc un changement radicale de philosophie.
+
+% \begin{equation}
+%   \mathrm{Pr(\theta|D)} = 
+%   \frac{\mathrm{Pr(\theta)}\times \mathrm{Pr(D|\theta)}}
+%   {\mathrm{Pr(D)}}
+%   \label{eq:bayes}
+% \end{equation}
+
+Ainsi, contrairement à l'approche NHT, cette méthode permet d'utiliser
+efficacement les données connues.
+C'est un avantage considérable, notamment quand la taille de l'échantillon est
+petite, car les calcul de \emph{p-value} y sont très sensibles.
+La figure \ref{fig:pearson} illustre cet avantage à partir de données receuillis
+de l'article de \citet{garamszegi2009}.
+Elle représente des coeffficients de corrélation de Pearson entre la taille de
+la bavette chez le moineau commun (espèce depuis longtemps disparue, un spécimen
+empaillé est visible au Muséum d'Histoire Naturelle de Terminus), et leur statu
+social.
+
+\begin{figure}[t]
+  {\graphfont\centering\input{img/dyn_pearson.tex}}
+  \caption{Calcul de coefficient de corrélation de Pearson selon quatre méthodes
+    : BIN = bayésienne avec distribution \textit{a priori} informative ;
+    BIN = bayésienne avec distribution \textit{a priori} non informative ;
+    NHT = Hypothèse nulle ;
+    META = méta-analyses sur plusieurs jeux de données
+  }
+  \label{fig:pearson}
 \end{figure}
 
 
 \section{Dans d'autres domaines}
-
 
 \section{Un point sur le partage de données}
 
