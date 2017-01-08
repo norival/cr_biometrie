@@ -95,8 +95,8 @@
 \definecolor{color1}{RGB}{59,90,198} % author email, doi
 \definecolor{color2}{RGB}{184, 65, 31} % Header, authors, table lines
 \colorlet{COLOR2}{color2}
-           
-% Bibliography    
+
+% Bibliography
 \RequirePackage[sort&compress]{natbib}
 \setlength{\bibsep}{0.0pt}
 
@@ -206,7 +206,7 @@
   {}
   {0em}
   {\MakeUppercase{#1}}
-  []  
+  []
 \titleformat{\subsection}
   {\sffamily\bfseries}
 {\textcolor{color2}{\thesubsection.}}
@@ -218,12 +218,12 @@
   {\thesubsubsection.}
   {0.5em}
   {#1}
-  []    
+  []
 \titleformat{\paragraph}[runin]
   {\sffamily\small\bfseries}
   {}
   {0em}
-  {#1} 
+  {#1}
 \titlespacing*{\section}{0pc}{3ex \@plus4pt \@minus3pt}{5pt}
 \titlespacing*{\subsection}{0pc}{2.5ex \@plus3pt \@minus2pt}{2pt}
 \titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{2pt}
@@ -237,7 +237,7 @@
 \newcommand{\doi}[1]{\def\@doi{#1}}
 
 \def\xabstract{abstract}
-\long\def\abstract#1\end#2{\def\two{#2}\ifx\two\xabstract 
+\long\def\abstract#1\end#2{\def\two{#2}\ifx\two\xabstract
 \long\gdef\theabstract{\ignorespaces#1}
 \def\go{\end{abstract}}\else
 \typeout{^^J^^J PLEASE DO NOT USE ANY \string\begin\space \string\end^^J
@@ -253,8 +253,8 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 \noindent
 {%
 \parbox{\dimexpr\linewidth}{%
-	\absfont \theabstract
-    \copyrightfont \ifthenelse{\boolean{displaycopyright}}{\copyrightstatement}{}
+  \absfont \theabstract
+  \copyrightfont \ifthenelse{\boolean{displaycopyright}}{\copyrightstatement}{}
 }%
 }%
 \vskip8pt%
@@ -270,7 +270,7 @@ THE ABSTRACT\vskip12pt}\let\go\relax\fi
 \hfill\textcolor{color2}{\rule{\linewidth}{.7pt}}
 }
 
-% Custom title page 
+% Custom title page
 \renewcommand{\@maketitle}{%
   \vskip10pt%
   {\raggedright \titlefont \@title\par}%
