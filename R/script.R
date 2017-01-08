@@ -33,10 +33,10 @@ p <-
   theme_bw() +
   xlab("Année") +
   ylab("Nombre de publications") +
-  theme(panel.grid = element_blank(),
-        axis.text.x = element_text(size = 9),
-        axis.title = element_text(size = 10),
-        panel.border = element_rect(colour = "black"))
+  theme(panel.grid    = element_blank(),
+        axis.text.x   = element_text(size = 9),
+        axis.title    = element_text(size = 10),
+        panel.border  = element_rect(colour = "black"))
 
 tikz("../latex/img/dyn_bibliometry.tex", width = 3.3, height = 2.2)
 p
@@ -107,12 +107,12 @@ p <-
   xlab("\\textit{r} de Pearson") +
   ylab("") +
   theme_bw() +
-  theme(panel.grid = element_blank(),
-        axis.line.x = element_line(size = 0.5, colour = "black"),
-        axis.text.x = element_text(size = 9),
-        axis.ticks.y = element_blank(),
-        axis.title = element_text(size = 10),
-        panel.border = element_blank())
+  theme(panel.grid    = element_blank(),
+        axis.line.x   = element_line(size = 0.5, colour = "black"),
+        axis.text.x   = element_text(size = 9),
+        axis.ticks.y  = element_blank(),
+        axis.title    = element_text(size = 10),
+        panel.border  = element_blank())
 
 tikz("../latex/img/dyn_pearson.tex", width = 3.3, height = 1.6)
 plot(p)
