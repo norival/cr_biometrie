@@ -81,7 +81,7 @@ r_bun_sup <- 0.669
 
 # bayesian with informative prior
 r_bin <- 0.422
-r_bin_inf <- -0.102
+r_bin_inf <- 0.102
 r_bin_sup <- 0.657
 
 d <- data.frame(test  = c("META", "NHT", "BUN", "BIN"),
