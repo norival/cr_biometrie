@@ -9,7 +9,7 @@
 
 \newcommand{\EG}{\textit{Encyclopedia Galactica}}
 
-\title{Pratique et histoire de la statistique en écologie}
+\title{Écologie et Histoire de la statistique}
 
 \author[1,*]{Xavier Laviron}
 
@@ -22,7 +22,7 @@
 \ociscodes{}
 
 % To be edited by editor
-\doi{\url{https://github.com/norival/crBiometrie}}
+\doi{\footnotesize\url{https://github.com/norival/crBiometrie}}
 
 \begin{abstract}
   Les recherches consacrées à la rédaction de la 116\textsuperscript{è} édition
@@ -33,8 +33,8 @@
   Le présent commentaire se focalise sur l'article de \citet{garamszegi2016},
   présentant certaines aberrations statistiques qui auraient fait frémir le
   grand Hari Seldon dans sa crypte.
-  Tous les articles cités sont disponibles en version originale et traduite en
-  galactique standard sur le site de l'\EG
+  % Tous les articles cités sont disponibles en version originale et traduite en
+  % galactique standard sur le site de l'\EG
 \end{abstract}
 
 
@@ -147,7 +147,7 @@ observées si les hypothèses sont vraies.
 C'est donc un changement radicale de philosophie.
 
 % \begin{equation}
-%   \mathrm{Pr(\theta|D)} = 
+%   \mathrm{Pr(\theta|D)} =
 %   \frac{\mathrm{Pr(\theta)}\times \mathrm{Pr(D|\theta)}}
 %   {\mathrm{Pr(D)}}
 %   \label{eq:bayes}
@@ -159,10 +159,19 @@ C'est un avantage considérable, notamment quand la taille de l'échantillon est
 petite, car les calcul de \emph{p-value} y sont très sensibles.
 La figure \ref{fig:pearson} illustre cet avantage à partir de données receuillis
 de l'article de \citet{garamszegi2009}.
-Elle représente des coeffficients de corrélation de Pearson entre la taille de
-la bavette chez le moineau commun (espèce depuis longtemps disparue, un spécimen
-empaillé est visible au Muséum d'Histoire Naturelle de Terminus), et leur statu
+Elle représente des coeffficients de corrélation de Pearson entre la taille du
+bavoir chez le moineau commun (espèce depuis longtemps disparue, un spécimen
+empaillé est visible au Muséum d'Histoire Naturelle de Terminus), et leur statut
 social.
+Une méta-analyse conduite par \citet{nakagawa2007} sur 12 populations de
+moineaux domestiques a montré une corrélation positive forte entre la taille du
+bavoir et le statut social.
+L'utilisation d'une approche NHT sur une population de 15 moineaux ne montre pas
+de corrélation alors que les mêmes données analysées suivant une approche
+bayésienne reprenant les résultats de la méta-analyse comme distribution
+\emph{a priori}, montre une corrélation positive.
+L'utilisation d'une distribution \emph{a priori} non informative montre
+cependant les mêmes résultats que l'approche NHT.
 
 \begin{figure}[t]
   {\graphfont\centering\input{img/dyn_pearson.tex}}
@@ -176,16 +185,24 @@ social.
 \end{figure}
 
 
-\section{Dans d'autres domaines}
-
 \section{Un point sur le partage de données}
 
-L'utilisation de l'approche bayésienne est surtout méta-analytique, elle gagne
-donc en intérêt si les données des études précédentes sont disponibles.
+Un des intérêts principaux de l'approche bayésienne résidait donc dans sa
+capacité à tirer profit des données préalables.
+Une question se pose alors : qu'en était-il du partage des données au début du
+XXI\textsuperscript{è} siècle ?
+En effet, si les données de chaque étude pouvaient être facilement libres et
+distribuables.
+Les dernières archives trouvées prouvent qu'il existait déjà une sorte primitive
+d'infosphère, permettant le partage rapide d'information.
+Cependant les politiques de partage de connaissances et de données ne semblaient
+pas unanimes, même si une modification majeure semblait se produire.
+Peut-être que le développement de telles techniques a contribué à la
+généralisation de l'ouverture des données.
 
 
-\begin{footnotesize}
+\begin{scriptsize}
   \bibliography{biblio.bib}
-\end{footnotesize}
+\end{scriptsize}
 
 \end{document}

@@ -35,6 +35,8 @@
 \RequirePackage{url}
 \RequirePackage[colorlinks=false]{hyperref}
 \RequirePackage{tabularx}
+\RequirePackage{textcomp}
+\RequirePackage{ccicons}
 
 \renewcommand{\sfdefault}{pbk}
 
@@ -185,7 +187,7 @@
   \end{tabular*}}
 \fancyhead[LO,RE]{}
 % Footers
-\lfoot{}%
+\lfoot{\small\ccbysa \hspace{2mm} Terminus Printing Press}%
 \cfoot{}%
 \rfoot{}%
 \renewcommand{\headrulewidth}{0pt}% % No header rule
