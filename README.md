@@ -9,8 +9,8 @@ Il s'agit d'un commentaire libre sur l'article _A simple statistical guide for
 the analysis of behaviour when data are constrained due to practical or ethical
 reasons_ par Laszlo Garamszegie.
 
-Ce commentaire prend la forme d'un article rédigé dans le futur et décrivant
-l'utilisation des statistiques en écologie en 2016.
+Ce commentaire prend la forme d'un hypothétique article rédigé dans le futur et
+décrivant l'utilisation des statistiques en écologie en 2016.
 La revue, _Encyclopedia Galactica reviews_, est une revue fictive faisant
 référence à l'univers du Cycle de Fondation par Isaac Asimov.
 
