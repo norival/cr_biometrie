@@ -39,8 +39,8 @@
   Ces dernières ont notamment permis de mettre en évidence certains
   comportements scientifiques de l'époque.
   Le présent commentaire se focalise sur l'article de \citet{garamszegi2016},
-  présentant certaines aberrations statistiques qui auraient fait frémir le
-  grand Hari Seldon dans sa crypte.
+  présentant des conseils statistiques afin de faire face à certaines
+  aberrations qui auraient fait frémir le grand Hari Seldon dans sa crypte.
   % Tous les articles cités sont disponibles en version originale et traduite en
   % galactique standard sur le site de l'\EG
 \end{abstract}
@@ -81,8 +81,8 @@ non-invasives ou de travailler sur des effectifs réduits.
 \section{La révolution Bayésienne}
 \subsection{Les hypothèses nulles en question}
 
-Pour faire face à ces limitations, l'approche bayésienne a alors gagné en
-popularité au sein de la comunauté scientifique.
+Pour faire face à ces limitations, une nouvelle approche, l'analyse bayésienne,
+a alors gagné en popularité au sein de la comunauté scientifique.
 Bien que se basant sur les travaux du XVIII\textsuperscript{è} siècle du
 mathématicien Thomas Bayes, cette approche n'a connu un véritable essor qu'à
 partir de la fin du XX\textsuperscript{è} siècle grâce au développement de
@@ -103,8 +103,8 @@ L'approche bayésienne suscita l'intérêt de la communauté scientifique car el
 permettait de combler les lacunes propres à l'approche classique utilisée
 jusqu'alors, à savoir les tests d'hypothèse nulle (NHT, voir le livre de
 \citet{fisher1925} pour plus d'explications à ce sujet).
-Ces derniers se basaient sur les \textit{p-value} afin de déterminer si les
-données permettaient de réfuter ou non l'hypothèse d'absence d'effet.
+Ces derniers se basaient sur le calcul de \textit{p-value} afin de déterminer si
+les données permettaient de réfuter ou non l'hypothèse d'absence d'effet.
 Un des problèmes majeurs de ces tests étaient leur caractère binaire souvent mal
 interprété par les biologistes.
 En effet, ils avaient tendance à se fixer un seuil de risque de 5~\% au-dessous
@@ -115,7 +115,7 @@ Il est pourtant évident que le rejet d'une hypothèse n'entraîne pas
 l'acceptation d'une autre hypothèse spécifique mais plutôt l'existence d'un
 nombre indéterminé d'autres hypothèses plus plausibles.
 
-\subsection{Faire face aux petits échantillons}
+\subsection{Approche Bayésienne}
 
 Afin de construire un modèle sur une approche bayésienne, il convient tout
 d'abord d'établir une distribution \textit{a priori} des données, ce qui est
@@ -123,7 +123,7 @@ fait en regroupant toutes les données connues jusqu'alors.
 Une fonction de probabilité est ensuite utilisée pour prédire la distribution
 des données si le modèle, l'hypothèse et le paramètre mesuré sont vrais.
 Enfin, cette probabilité \textit{a posteriori} est modifiée, selon la fonction
-de probabilité et des données nouvellement recueillies.
+de probabilité et les données nouvellement recueillies.
 Cela permet donc d'avoir une probabilité que les hypothèses soient vraies
 compte-tenu des données observées suivant le théorème énoncé par Thomas Bayes.
 L'approche NHT permet quant à elle d'obtenir une probabilité des données
@@ -141,23 +141,25 @@ bavoir chez le moineau commun (espèce depuis longtemps disparue, un spécimen
 empaillé est visible au Muséum d'Histoire Naturelle de Terminus), et leur statut
 social.
 Une méta-analyse conduite par \citet{nakagawa2007} sur 12 populations de
-moineaux domestiques a montré une corrélation positive forte entre la taille du
-bavoir et le statut social.
+moineaux domestiques a montré une corrélation positive forte entre ces deux
+paramètres.
 Une étude hypothétique est ensuite menée sur une population de 15 moineaux.
 L'analyse par une approche NHT ne montre aucune corrélation.
 Cependant, les mêmes données analysées suivant une approche bayésienne,
 reprenant les résultats de la méta-analyse comme distribution \emph{a priori},
 montre une corrélation positive.
-L'utilisation d'une distribution \emph{a priori} non informative montre quant à
-elle les mêmes résultats que l'approche NHT.
+L'utilisation de données préalables non informatives montre quant à elle les
+mêmes résultats que l'approche NHT.
 
 \begin{figure}[t]
   {\graphfont\centering\input{img/dyn_pearson.tex}}
-  \caption{Calcul de coefficient de corrélation de Pearson selon quatre méthodes
-    : BIN = bayésienne avec distribution \textit{a priori} informative ;
+  \caption{Calcul du coefficient de corrélation de Pearson pour différentes
+    approches :
+    BIN = bayésienne avec distribution \textit{a priori} informative ;
     BIN = bayésienne avec distribution \textit{a priori} non informative ;
-    NHT = Hypothèse nulle ;
-    META = méta-analyses sur plusieurs jeux de données
+    NHT = test d'hypothèse nulle ;
+    META = méta-analyses sur plusieurs jeux de données.
+    Le recoupement des IC95 avec 0 montre une absence de corrélation.
   }
   \label{fig:pearson}
 \end{figure}
